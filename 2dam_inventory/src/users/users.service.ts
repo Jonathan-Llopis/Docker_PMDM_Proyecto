@@ -3,7 +3,7 @@ import { UtilsService } from '../utils/utils.service';
 import { User } from './users.entity';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Repository } from 'typeorm';
-import * as bcrypt from 'bcryptjs';
+//import * as bcrypt from 'bcryptjs';
 import { CreateUserDto, UpdateUserDto } from './user.dto';
 @Injectable()
 export class UsersService {
@@ -26,8 +26,8 @@ export class UsersService {
 
   async createUser(createUserDto: CreateUserDto): Promise<User> {
     const usuario = await this.usersRepository.create(createUserDto);
-    const passwordHash = await bcrypt.hash(await usuario.password, 10);
-    usuario.password = passwordHash;
+    // const passwordHash = await bcrypt.hash(await usuario.password, 10);
+    // usuario.password = passwordHash;
     return this.usersRepository.save(usuario);
   }
 
