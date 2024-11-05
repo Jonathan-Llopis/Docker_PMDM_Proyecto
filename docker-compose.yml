@@ -6,7 +6,7 @@ services:
     depends_on:
       - database
       #- redis
-    container_name: 2dam_inventory-webserver
+    container_name: 2dam_inventory_movil-webserver
     working_dir: /web
     command: pm2-runtime start pm2.json
     volumes:
@@ -18,7 +18,7 @@ services:
 
   database:
     image: yobasystems/alpine-mariadb:10.11.8
-    container_name: 2dam-inventory-db
+    container_name: 2dam-inventory_movil-db
     ports:
       - "2222:3306"
     #restart: always

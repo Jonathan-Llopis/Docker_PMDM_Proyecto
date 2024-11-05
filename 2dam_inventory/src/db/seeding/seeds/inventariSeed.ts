@@ -20,7 +20,6 @@ export class InventariSeeder implements Seeder {
           where: { id_classroom: item.id_classroom },
         });
 
-        // Verifica si se encontraron los registros necesarios
         if (!inventariType || !classroom) {
           throw new Error(
             `No se pudo encontrar tipo de inventario o aula para el ítem: ${JSON.stringify(item)}`,

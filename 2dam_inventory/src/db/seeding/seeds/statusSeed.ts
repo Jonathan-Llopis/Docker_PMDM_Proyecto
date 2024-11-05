@@ -7,7 +7,14 @@ export class StatusSeeder implements Seeder {
   public async run(dataSource: DataSource): Promise<any> {
     const statusRepository = dataSource.getRepository(Status);
 
-    await statusRepository.save(statusData);
+    const statusEntry = statusData.map((item) => {
+      const statusEntry = new Status();
+      statusEntry.description = item.description;
+
+      return statusEntry;
+    });
+
+    await statusRepository.save(statusEntry);
 
     console.log('Status seeding completed!');
   }

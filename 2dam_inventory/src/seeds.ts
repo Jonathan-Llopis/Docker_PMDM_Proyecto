@@ -13,6 +13,7 @@ import { IssueSeeder } from './db/seeding/seeds/issues.seeder';
 import { UserSeeder } from './db/seeding/seeds/users.seeder';
 import { Inventary_typeSeeder } from './db/seeding/seeds/inventari_type.seeds';
 import { ClassroomSeeder } from './db/seeding/seeds/classroomSeed';
+import { StatusSeeder } from './db/seeding/seeds/statusSeed';
 import { config } from 'dotenv';
 config();
 
@@ -34,11 +35,12 @@ const options: DataSourceOptions & SeederOptions = {
     Classroom,
   ],
   seeds: [
+    StatusSeeder,
     Inventary_typeSeeder,
     UserSeeder,
     ClassroomSeeder,
-    IssueSeeder,
     InventariSeeder,
+    IssueSeeder,
   ],
 };
 

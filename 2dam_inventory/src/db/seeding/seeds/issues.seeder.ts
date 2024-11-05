@@ -15,17 +15,17 @@ export class IssueSeeder implements Seeder {
     const issueEntries = await Promise.all(
       issueData.map(async (item) => {
         const issueEntry = new Issue();
-        issueEntry.fk_inventari = await inventariRepository.findOneBy({
-          id_inventory: item.id_inventory,
+        issueEntry.fk_inventari = await inventariRepository.findOne({
+          where: { id_inventory: item.id_inventory },
         });
-        issueEntry.status = await statusRepository.findOneBy({
-          id_status: item.id_status,
+        issueEntry.status = await statusRepository.findOne({
+          where: { id_status: item.id_status },
         });
-        issueEntry.user = await userRepository.findOneBy({
-          id_user: item.id_user,
+        issueEntry.user = await userRepository.findOne({
+          where: { id_user: item.id_user },
         });
-        issueEntry.technician = await userRepository.findOneBy({
-          id_user: item.id_tecnic,
+        issueEntry.technician = await userRepository.findOne({
+          where: { id_user: item.id_tecnic },
         });
         issueEntry.description = item.description;
         issueEntry.notes = item.notes;
